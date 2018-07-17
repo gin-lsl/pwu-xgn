@@ -1,0 +1,30 @@
+.GuInput {
+  height: 24px;
+  width: auto;
+  border: 2px solid darken(#FFF, 20%);
+  padding: 0 20px 0 8px;
+  &:hover {
+    border-color: darken(#FFF, 40%);
+  }
+  &:focus {
+    border-color: #4C4A48;
+  }
+  &.GuInput__clear--press {
+    border-color: #4C4A48;
+  }
+}
+.GuInput__clear {
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 28px;
+  height: 28px;
+  line-height: 28px;
+  user-select: none;
+  &.GuInput__clear--press {
+    background-color: #4C4A48;
+    color: white;
+  }
+}

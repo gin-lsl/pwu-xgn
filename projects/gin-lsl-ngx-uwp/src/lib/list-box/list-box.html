@@ -1,0 +1,15 @@
+<div *ngFor="let item of GuItemSource; let index = index"
+     class="Gu GuListBox__item"
+     [class.GuListBox__item--select]="index === _selectIndex"
+     (click)="onSelect(item, index)"
+     [style.height.px]="GuHeight"
+     [style.line-height.px]="GuHeight">
+  <ng-container *ngIf="GuDisplayMemberTemplate; else GuListBoxItemElseTpl">
+    <ng-template [ngTemplateOutlet]="GuDisplayMemberTemplate"
+                 [ngTemplateOutletContext]="{
+                    $implicit: item,
+                    index: index
+                  }"></ng-template>
+  </ng-container>
+  <ng-template #GuListBoxItemElseTpl>{{ GuDisplayMemberPath ? item[GuDisplayMemberPath] : item }}</ng-template>
+</div>

@@ -1,0 +1,6 @@
+<div class="Gu GuSimpleTreeView">
+  <GuTreeViewNode [GuTreeViewNode]="GuTree"
+                  (GuClickBranch)="GuClickBranch.emit($event)"
+                  (GuClickLeaf)="GuClickLeaf.emit($event)"
+                  (GuSelectChange)="GuSelectChange.emit($event)"></GuTreeViewNode>
+</div>

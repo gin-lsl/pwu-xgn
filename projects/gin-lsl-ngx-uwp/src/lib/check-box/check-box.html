@@ -1,0 +1,22 @@
+<label>
+  <div class="Gu-check-box-inner-container">
+    <input type="checkbox"
+           class="Gu-check-box-input Gu-visually-hidden"
+           (click)="value = !value">
+    <div class="Gu-check-box-border"></div>
+    <div class="Gu-check-box-background">
+      <svg version="1.1"
+           focusable="false"
+           class="Gu-check-box-icon"
+           viewBox="0 0 24 24">
+        <path class="Gu-check-box-icon-path"
+              fill="none"
+              stroke="white"
+              d="M4.1,12.7 9,17.6 20.3,6.3" />
+      </svg>
+    </div>
+  </div>
+  <span class="Gu-check-box-label">
+    <ng-content></ng-content>
+  </span>
+</label>

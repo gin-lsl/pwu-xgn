@@ -1,0 +1,5 @@
+<div class="Gu GuTreeView">
+  <GuTreeViewNode [GuTreeViewNode]="tree"
+                  (GuClickBranch)="onClick($event, false)"
+                  (GuClickLeaf)="onClick($event, true)"></GuTreeViewNode>
+</div>

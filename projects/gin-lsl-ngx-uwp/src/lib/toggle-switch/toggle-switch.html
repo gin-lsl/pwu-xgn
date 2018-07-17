@@ -1,0 +1,21 @@
+<span class="Gu GuToggleSwitch"
+      [class.GuToggleSwitch--checked]="GuChecked"
+      [tabIndex]="GuDisabled ? -1 : 0">
+  <span class="Gu GuToggleSwitch__glyph"></span>
+  <span class="Gu GuToggleSwitch__content">
+    <span class="Gu"
+          *ngIf="checked">
+      <ng-container *ngIf="isCheckedContentString; else GuCheckedContentTpl">{{ GuCheckedContent }}</ng-container>
+      <ng-template #GuCheckedContentTpl>
+        <ng-template [ngTemplateOutlet]="GuCheckedContent"></ng-template>
+      </ng-template>
+    </span>
+    <span class="Gu"
+          *ngIf="!checked">
+      <ng-container *ngIf="isUnCheckedContentString; else GuUnCheckedContentTpl">{{ GuUnCheckedContent }}</ng-container>
+      <ng-template #GuUnCheckedContentTpl>
+        <ng-template [ngTemplateOutlet]="GuUnCheckedContent"></ng-template>
+      </ng-template>
+    </span>
+  </span>
+</span>

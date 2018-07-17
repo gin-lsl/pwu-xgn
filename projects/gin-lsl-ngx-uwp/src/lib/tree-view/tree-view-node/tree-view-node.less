@@ -1,0 +1,40 @@
+.GuTreeView__node-branch,
+.GuTreeView__node-leaf {
+  height: 44px;
+  line-height: 44px;
+  cursor: default;
+
+  &:hover {
+    background-color: #E9E9E9;
+
+    &:active {
+      background-color: #D5D5D5;
+    }
+  }
+
+  &.GuTreeView__node--select {
+
+    background-color: #A6D8FF;
+
+    &:hover {
+      background-color: #86C1EF;
+    }
+  }
+
+  &-icon-wrapper {
+    position: relative;
+    top: .4em;
+    margin-right: 8px;
+
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    &--right {
+      svg {
+        transform: rotate(270deg);
+      }
+    }
+  }
+}

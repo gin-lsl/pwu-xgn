@@ -1,0 +1,37 @@
+<div class="Gu GuTreeViewNode">
+  <div *ngIf="GuTreeViewNode.children?.length > 0; else GuTreeViewNodeLeafTpl"
+       class="GuTreeView__node-branch"
+       [class.GuTreeView__node--select]="GuTreeViewNode.isSelect"
+       [style.padding-left.px]="GuIndent * 30"
+       (click)="_onClickBranch(GuTreeViewNode)">
+    <span class="GuTreeView__node-branch-icon-wrapper"
+          [class.GuTreeView__node-branch-icon-wrapper--right]="!GuTreeViewNode.isExpand"
+          (click)="toggleExpand(GuTreeViewNode, $event)">
+      <svg xmlns="http://www.w3.org/2000/svg"
+           focusable="false"
+           version="1.1"
+           viewBox="0 0 44 44">
+        <path fill="none"
+              stroke="black"
+              d="M7,14 22,28 37,14" />
+      </svg>
+    </span>
+    <span class="GuTreeView__node-branch-text">{{ GuTreeViewNode.title || '---' }}</span>
+  </div>
+  <ng-template #GuTreeViewNodeLeafTpl>
+    <div class="GuTreeView__node-leaf"
+         [class.GuTreeView__node--select]="GuTreeViewNode.isSelect"
+         [style.padding-left.px]="GuIndent * 30 + 32"
+         (click)="_onClickLeaf(GuTreeViewNode)">
+      <span class="GuTreeView__node-leaf-text">{{ GuTreeViewNode.title || '---' }}</span>
+    </div>
+  </ng-template>
+  <ng-container *ngIf="GuTreeViewNode.isExpand && GuTreeViewNode.children?.length > 0">
+    <GuTreeViewNode *ngFor="let node of GuTreeViewNode.children"
+                    [GuTreeViewNode]="node"
+                    [GuIndent]="GuIndent + 1"
+                    (GuClickBranch)="GuClickBranch.emit($event)"
+                    (GuClickLeaf)="GuClickLeaf.emit($event)"
+                    (GuSelectChange)="GuSelectChange.emit($event)"></GuTreeViewNode>
+  </ng-container>
+</div>

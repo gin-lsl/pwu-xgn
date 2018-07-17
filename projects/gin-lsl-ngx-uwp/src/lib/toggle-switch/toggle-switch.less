@@ -1,0 +1,48 @@
+.GuToggleSwitch {
+  display: inline-block;
+  position: relative;
+  height: 24px;
+  line-height: 24px;
+  user-select: none;
+}
+
+.GuToggleSwitch__glyph {
+  display: inline-block;
+  position: relative;
+  height: 20px;
+  min-width: 50px;
+  line-height: 20px;
+  border: 2px solid black;
+  border-radius: 13px;
+  &::after {
+    display: inline-block;
+    content: ' ';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1px solid transparent;
+    background-color: black;
+    top: 4px;
+    bottom: 0;
+    left: 4px;
+    right: 0;
+  }
+}
+
+.GuToggleSwitch--checked .GuToggleSwitch__glyph {
+  background-color: blue;
+  border-color: transparent;
+}
+
+.GuToggleSwitch--checked .GuToggleSwitch__glyph::after {
+  right: 4px;
+  left: auto;
+  background-color: #FFF;
+}
+
+.GuToggleSwitch__content {
+  position: relative;
+  bottom: 6px;
+  margin-left: 8px;
+}

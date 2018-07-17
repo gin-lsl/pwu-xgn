@@ -120,6 +120,86 @@
           }
         }
       }
+    },
+    "gu-input": {
+      "root": "projects/gu-input",
+      "sourceRoot": "projects/gu-input/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/gu-input/tsconfig.lib.json",
+            "project": "projects/gu-input/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/gu-input/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/gu-input/src/test.ts",
+            "tsConfig": "projects/gu-input/tsconfig.spec.json",
+            "karmaConfig": "projects/gu-input/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/gu-input/tsconfig.lib.json",
+              "projects/gu-input/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "gin-lsl-ngx-uwp": {
+      "root": "projects/gin-lsl-ngx-uwp",
+      "sourceRoot": "projects/gin-lsl-ngx-uwp/src",
+      "projectType": "library",
+      "prefix": "gu",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/gin-lsl-ngx-uwp/tsconfig.lib.json",
+            "project": "projects/gin-lsl-ngx-uwp/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/gin-lsl-ngx-uwp/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/gin-lsl-ngx-uwp/src/test.ts",
+            "tsConfig": "projects/gin-lsl-ngx-uwp/tsconfig.spec.json",
+            "karmaConfig": "projects/gin-lsl-ngx-uwp/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/gin-lsl-ngx-uwp/tsconfig.lib.json",
+              "projects/gin-lsl-ngx-uwp/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "ngx-uwp"

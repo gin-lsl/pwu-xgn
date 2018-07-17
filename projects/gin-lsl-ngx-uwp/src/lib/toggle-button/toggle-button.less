@@ -1,0 +1,25 @@
+@import '../style.less';
+.GuToggleButton {
+  min-height: 32px;
+  min-width: 90px;
+  background-color: darken(#FFF, 10%);
+  border: 2px solid transparent;
+  &:active {
+    background-color: darken(#FFF, 30%);
+  }
+  &.GuToggleButton--checked {
+    color: #FFF;
+    background-color: #0078d7;
+  }
+  &.GuToggleButton--disabled {
+    color: #7A7A7A;
+    background-color: darken(#FFF, 15%);
+    &:active {
+      background-color: darken(#FFF, 15%);
+    }
+  }
+  &.GuToggleButton--checked.GuToggleButton--disabled {
+    color: darken(#FFF, 5%);
+    background-color: lighten(#0078d7, 5%);
+  }
+}
