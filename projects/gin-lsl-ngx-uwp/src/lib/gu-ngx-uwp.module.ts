@@ -10,6 +10,7 @@ import { GuToggleSwitchModule } from './toggle-switch/toggle-switch.module';
 import { GuCheckBoxModule } from './check-box/check-box.module';
 import { GuTreeViewModule } from './tree-view/tree-view.module';
 import { GuListBoxModule } from './list-box/list-box.module';
+import { GuToolTipModule } from './tool-tip/tool-tip.module';
 
 const LIB_MODULES = [
   GuAppBarButtonModule,
@@ -22,6 +23,7 @@ const LIB_MODULES = [
   GuCheckBoxModule,
   GuTreeViewModule,
   GuListBoxModule,
+  GuToolTipModule,
 ];
 
 @NgModule({

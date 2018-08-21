@@ -38,4 +38,7 @@ export * from './lib/tree-view/simple-tree-view/simple-tree-view';
 export * from './lib/list-box/list-box';
 export * from './lib/list-box/list-box.module';
 
+export * from './lib/tool-tip/tool-tip.component';
+export * from './lib/tool-tip/tool-tip.module';
+
 // import './lib/common.less';

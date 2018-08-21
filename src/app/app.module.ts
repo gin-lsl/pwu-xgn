@@ -1,8 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { PortalModule } from '@angular/cdk/portal';
+import { OverlayModule } from '@angular/cdk/overlay';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { AppComponent, DialogComponent } from './app.component';
 import { ParentComponent } from './parent/parent.component';
 import { ChildComponent } from './child/child.component';
 // import { GuButtonModule } from 'projects/gin-lsl-ngx-uwp/src/lib/button/button.module';
@@ -20,12 +22,15 @@ import { FormsModule } from '@angular/forms';
     AppComponent,
     ParentComponent,
     ChildComponent,
+    DialogComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     GuNgxUwpModule,
     FormsModule,
+    PortalModule,
+    OverlayModule,
     // GuInputModule,
     // GuButtonModule,
     // GuAppBarButtonModule,
@@ -35,6 +40,7 @@ import { FormsModule } from '@angular/forms';
     // GuToggleSwitchModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [DialogComponent]
 })
 export class AppModule { }

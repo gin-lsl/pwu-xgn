@@ -2,9 +2,11 @@
        GuInput
        #guInputRef>
 <button GuButton
+        GuToolTip
+        [GuContent]="'Get Focus'"
         (click)="guInputRef.focus()">获取焦点</button>
 
-<button (click)="guInputRef.focus()"></button>
+<button (click)="guInputRef.focus()">Get Focus</button>
 
 <div>COUNT: {{ count }}</div>
 <button GuButton
@@ -15,6 +17,8 @@
     </pre>
   </span>
 </button>
+
+<router-outlet></router-outlet>
 
 <button GuButton
         (click)="count = count - 1">test</button>
@@ -64,8 +68,69 @@
   <ng-template #myListBoxTpl
                let-item
                let-index="index">
-    <span class="list-box-item-name">{{ item.name }}</span>
-    <span>|</span>
-    <span class="list-box-item-type">{{ item.type }}</span>
+    <div GuToolTip [GuContent]="item.name + ' --- ' + item.type">
+      <span class="list-box-item-name">{{ item.name }}</span>
+      <span>|</span>
+      <span class="list-box-item-type">{{ item.type }}</span>
+    </div>
   </ng-template>
 </GuListBox>
+
+
+<div GuToolTip
+     [GuContent]="'Tool Tip'">test</div>
+
+<span GuToolTip
+      [GuContent]="'Test Tool Tip'">测试ToolTip指令</span>
+
+<hr>
+
+<div #_portal1></div>
+<ng-template #_portalTpl1
+             let-name="name">
+  <p>Template: {{ name }}</p>
+</ng-template>
+
+<div #_portal2></div>
+
+<button GuButton
+        (click)="onDoPortal()">Attach Template</button>
+
+<button GuButton
+        (click)="onDoComponentPortal()">Attach Component</button>
+
+<ng-template *ngIf="cdkPortalArray?.length"
+             [cdkPortalOutlet]="cdkPortalArray[selectedCdkPortalIndex]"></ng-template>
+
+<select [(ngModel)]="selectedCdkPortalIndex"
+        name="selectedCdkPortalIndex">
+  <option value="0">第1个</option>
+  <option value="1">第2个</option>
+  <option value="2">第3个</option>
+  <option value="3">第4个</option>
+</select>
+
+<ng-template [cdkPortalOutlet]="cdkComponentPortal"></ng-template>
+
+<ng-template cdkPortal>
+  <p>第1个</p>
+</ng-template>
+<ng-template cdkPortal>
+  <p>第2个</p>
+</ng-template>
+<ng-template cdkPortal>
+  <p>第3个</p>
+</ng-template>
+<ng-template cdkPortal>
+  <p>第4个</p>
+</ng-template>
+
+<ng-template cdkPortal
+             #myCdkPortalTpl="cdkPortal">
+  <p>myCdkPortalTpl</p>
+</ng-template>
+
+<ng-template [cdkPortalOutlet]="myCdkPortalTpl"></ng-template>
+
+<button GuButton
+        (click)="openOverlay()">打开Dialog</button>
