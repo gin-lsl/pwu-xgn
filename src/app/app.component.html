@@ -45,6 +45,26 @@
 <button GuButton
         (click)="disabled = !disabled">{{ disabled ? '启用' : '禁用' }}</button>
 
+<input type="range"
+       id="range"
+       min="0"
+       max="100"
+       step="0.1"
+       #range="ngModel"
+       ngModel
+       name="range">
+<label for="range"
+       GuToolTip
+       [GuContent]="'RANGE: ' + range.value">RANGE {{ range.value }}</label>
+
+<hr>
+<GuSlider [ngModel]="range.value"
+          name="slider1"
+          [disabled]="false"
+          [GuMin]="1"
+          [GuDisabled]="false"></GuSlider>
+<hr>
+
 <GuToggleSwitch [(GuChecked)]="disabled"
                 [GuCheckedContent]="'启用'"
                 [GuUnCheckedContent]="'禁用'"></GuToggleSwitch>
@@ -68,7 +88,8 @@
   <ng-template #myListBoxTpl
                let-item
                let-index="index">
-    <div GuToolTip [GuContent]="item.name + ' --- ' + item.type">
+    <div GuToolTip
+         [GuContent]="item.name + ' --- ' + item.type">
       <span class="list-box-item-name">{{ item.name }}</span>
       <span>|</span>
       <span class="list-box-item-type">{{ item.type }}</span>

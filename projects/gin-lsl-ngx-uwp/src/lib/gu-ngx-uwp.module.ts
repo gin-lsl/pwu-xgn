@@ -11,6 +11,7 @@ import { GuCheckBoxModule } from './check-box/check-box.module';
 import { GuTreeViewModule } from './tree-view/tree-view.module';
 import { GuListBoxModule } from './list-box/list-box.module';
 import { GuToolTipModule } from './tool-tip/tool-tip.module';
+import { GuSliderModule } from './slider/slider.module';
 
 const LIB_MODULES = [
   GuAppBarButtonModule,
@@ -24,6 +25,7 @@ const LIB_MODULES = [
   GuTreeViewModule,
   GuListBoxModule,
   GuToolTipModule,
+  GuSliderModule,
 ];
 
 @NgModule({

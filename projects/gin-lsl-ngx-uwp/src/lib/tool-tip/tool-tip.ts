@@ -5,7 +5,10 @@ import { GuToolTipComponent } from './tool-tip.component';
 
 @Directive({
   selector: '[GuToolTip]',
-  exportAs: 'GuToolTip'
+  exportAs: 'GuToolTip',
+  host: {
+    'class': 'Gu GuToolTip',
+  }
 })
 export class GuToolTipDirective implements OnDestroy {
 

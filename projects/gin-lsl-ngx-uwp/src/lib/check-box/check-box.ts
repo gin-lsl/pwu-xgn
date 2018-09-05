@@ -44,7 +44,6 @@ export class CheckBoxComponent implements OnInit, ControlValueAccessor {
   }
 
   ngOnInit(): void {
-
   }
 
   writeValue(obj: any): void {

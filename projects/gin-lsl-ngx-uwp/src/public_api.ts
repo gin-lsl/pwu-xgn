@@ -41,4 +41,7 @@ export * from './lib/list-box/list-box.module';
 export * from './lib/tool-tip/tool-tip.component';
 export * from './lib/tool-tip/tool-tip.module';
 
+export * from './lib/slider/slider';
+export * from './lib/slider/slider.module';
+
 // import './lib/common.less';

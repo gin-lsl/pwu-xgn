@@ -1,0 +1,55 @@
+.GuSlider {
+  display: inline-block;
+  width: 300px;
+  height: 30px;
+  box-shadow: 0 0 1px lightblue;
+  padding: 4px;
+  position: relative;
+  vertical-align: middle;
+}
+
+.GuSlider-inner-container {
+  display: inline-block;
+  position: absolute;
+  left: 4px;
+  right: 4px;
+  top: calc(~"50% - 1px");
+  height: 2px;
+}
+
+.GuSlider-road-wrapper {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  top: 0;
+  left: 0;
+}
+
+.GuSlider-road-total {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: lightgrey;
+}
+
+.GuSlider-road-value {
+  position: absolute;
+  height: 100%;
+  background-color: red;
+}
+
+.GuSlider-thumb-wrapper {
+  position: absolute;
+  height: 0px;
+  width: 100%;
+  top: 50%;
+}
+
+.GuSlider-thumb {
+  position: absolute;
+  width: 8px;
+  height: 24px;
+  top: -12px;
+  background-color: lightblue;
+  border-radius: 8px;
+}

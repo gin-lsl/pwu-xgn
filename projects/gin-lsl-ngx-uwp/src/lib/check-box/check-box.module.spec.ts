@@ -1,10 +1,10 @@
-import { CheckBoxModule } from './check-box.module';
+import { GuCheckBoxModule } from './check-box.module';
 
-describe('CheckBoxModule', () => {
-  let checkBoxModule: CheckBoxModule;
+describe('GuCheckBoxModule', () => {
+  let checkBoxModule: GuCheckBoxModule;
 
   beforeEach(() => {
-    checkBoxModule = new CheckBoxModule();
+    checkBoxModule = new GuCheckBoxModule();
   });
 
   it('should create an instance', () => {
