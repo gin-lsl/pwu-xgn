@@ -24,9 +24,24 @@ export class GuListBoxComponent implements OnInit {
 
   @Input() GuSelectedValuePath: string;
 
+  @Input() GuSelection: any;
+
   @Input() GuDisplayMemberTemplate: TemplateRef<any>;
 
-  @Output() GuSelectionChanged: EventEmitter<any> = new EventEmitter();
+  /**
+   * 阻止 GuSelectionChange 事件
+   */
+  @Input() GuPreventSelectionChangeEvent: boolean;
+
+  /**
+   * 选择
+   */
+  @Output() GuSelect: EventEmitter<any> = new EventEmitter();
+
+  /**
+   * 选中值改变
+   */
+  @Output() GuSelectionChange: EventEmitter<any> = new EventEmitter();
 
   _selectIndex: number;
 
@@ -35,7 +50,11 @@ export class GuListBoxComponent implements OnInit {
   ngOnInit(): void { }
 
   onSelect(item: any, index: number) {
-    this._selectIndex = index;
-    this.GuSelectionChanged.emit(this.GuSelectedValuePath ? item[this.GuSelectedValuePath] : item);
+
+    this.GuSelect.emit(this.GuSelectedValuePath ? item[this.GuSelectedValuePath] : item);
+    if (!this.GuPreventSelectionChangeEvent) {
+      this._selectIndex = index;
+      this.GuSelectionChange.emit(this.GuSelectedValuePath ? item[this.GuSelectedValuePath] : item);
+    }
   }
 }

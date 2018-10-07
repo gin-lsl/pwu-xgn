@@ -26,9 +26,13 @@ export class GuSliderComponent implements OnInit, ControlValueAccessor {
   private _min: number = 0;
   private _max: number = 100;
   private _disabled: boolean = false;
+  private _max_precent = this.max / 100;
+
+  _displayValue = 0;
 
   set value(value: any) {
     this._value = value;
+    this._displayValue = value / this._max_precent;
     this.notifyValueChange();
   }
   get value() { return this._value; }
@@ -43,7 +47,10 @@ export class GuSliderComponent implements OnInit, ControlValueAccessor {
 
   @Input('GuMax')
   get max() { return this._max; }
-  set max(max) { this._max = coerceNumberProperty(max); }
+  set max(max) {
+    this._max = coerceNumberProperty(max);
+    this._max_precent = this._max / 100;
+  }
 
   @Input('GuDisabled')
   get disabled() { return this._disabled; }
@@ -86,10 +93,20 @@ export class GuSliderComponent implements OnInit, ControlValueAccessor {
     if (this.disabled) {
       return;
     }
-    // let oldValue = this.value;
+    const ref_padding_left = 8;
+    const min_point = 0;
+    const max_point = 284;
+    const scale = max_point / this.max;
     const rect = this.elementRef.nativeElement.getBoundingClientRect();
-    console.log('rect: ', rect);
-    console.log('elementref: ', this.elementRef.nativeElement);
-    console.log('clientX: ', event.clientX);
+    const client_x = event.clientX;
+    const rect_left = rect.left;
+    let point_x = client_x - rect_left - ref_padding_left;
+    if (point_x < min_point) {
+      point_x = min_point;
+    } else if (point_x > max_point) {
+      point_x = max_point;
+    }
+    point_x = point_x / scale;
+    this.value = point_x;
   }
 }

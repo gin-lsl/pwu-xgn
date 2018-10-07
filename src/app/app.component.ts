@@ -85,6 +85,8 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   cdkComponentPortal: any;
 
+  sliderValue: any;
+
   constructor(
     private _componentFactoryResolver: ComponentFactoryResolver,
     private _injector: Injector,
@@ -275,6 +277,10 @@ export class AppComponent implements OnInit, AfterViewInit {
 
     // overlayRef.attach(overlayContentComponet);
     overlayRef.attach(tplCon);
+  }
+
+  onChangeSlider(value) {
+    console.log('event: ', event);
   }
 
 }

@@ -49,19 +49,19 @@
        id="range"
        min="0"
        max="100"
-       step="0.1"
-       #range="ngModel"
-       ngModel
+       #range
+       [(ngModel)]="sliderValue"
        name="range">
 <label for="range"
        GuToolTip
-       [GuContent]="'RANGE: ' + range.value">RANGE {{ range.value }}</label>
+       [GuContent]="'RANGE: ' + range.value">RANGE {{ sliderValue }}</label>
 
 <hr>
-<GuSlider [ngModel]="range.value"
+<GuSlider [(ngModel)]="sliderValue"
           name="slider1"
           [disabled]="false"
           [GuMin]="1"
+          [GuMax]="200"
           [GuDisabled]="false"></GuSlider>
 <hr>
 
